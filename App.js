@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import HomeScreen from './screens/HomeScreen';
+import GenderScreen from './screens/GenderScreen';
+import AgeScreen from './screens/AgeScreen';
+import UniversitiesScreen from './screens/UniversitiesScreen';
+import WeatherScreen from './screens/WeatherScreen';
+import PokemonScreen from './screens/PokemonScreen';
+import NewsScreen from './screens/NewsScreen';
+import MenuScreen from './screens/MenuScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Menú">
+        <Stack.Screen name="Menú" component={MenuScreen} />
+        <Stack.Screen name="Inicio" component={HomeScreen} />
+        <Stack.Screen name="Género" component={GenderScreen} />
+        <Stack.Screen name="Edad" component={AgeScreen} />
+        <Stack.Screen name="Universidades" component={UniversitiesScreen} />
+        <Stack.Screen name="Clima RD" component={WeatherScreen} />
+        <Stack.Screen name="Pokémon" component={PokemonScreen} />
+        <Stack.Screen name="Noticias DJ" component={NewsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
