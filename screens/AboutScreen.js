@@ -1,5 +1,14 @@
 import React from 'react';
-import { View, Text, Image, Linking, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  Linking,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import Animated, { FadeInUp } from 'react-native-reanimated';
 
 export default function AboutScreen() {
   const handleGitHub = () => {
@@ -7,49 +16,60 @@ export default function AboutScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <Image source={require('../assets/img/foto2.jpeg')} style={styles.image} />
+    <LinearGradient
+      colors={['#93c5fd', '#e0f2fe']}
+      style={styles.background}
+    >
+      <Animated.View entering={FadeInUp.duration(800)} style={styles.container}>
+        <Image
+          source={require('../assets/img/foto2.jpeg')}
+          style={styles.image}
+        />
 
-      <Text style={styles.name}>Gabriel Nuñez Medina</Text>
-      <Text style={styles.email}>📧 20231871@itla.edu.do</Text>
+        <Text style={styles.name}>Gabriel Nuñez Medina</Text>
+        <Text style={styles.text}>📧 20231871@itla.edu.do</Text>
 
-      <TouchableOpacity onPress={handleGitHub}>
-        <Text style={styles.github}>💻 GITHUB </Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity onPress={handleGitHub}>
+          <Text style={styles.link}>💻 Perfil de Github</Text>
+        </TouchableOpacity>
+      </Animated.View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+  },
   container: {
+    padding: 30,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F0F4F8',
-    padding: 20,
   },
   image: {
     width: 160,
     height: 160,
     borderRadius: 80,
     borderWidth: 3,
-    borderColor: '#3b82f6',
+    borderColor: '#2563eb',
     marginBottom: 20,
   },
   name: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
+    color: '#1e3a8a',
+    marginBottom: 8,
+  },
+  text: {
+    fontSize: 16,
+    color: '#1e40af',
     marginBottom: 6,
-    color: '#1e293b',
   },
-  email: {
+  link: {
     fontSize: 16,
-    color: '#334155',
-    marginBottom: 10,
-  },
-  github: {
-    fontSize: 16,
-    color: '#2563eb',
+    color: '#1d4ed8',
     textDecorationLine: 'underline',
+    marginTop: 10,
   },
 });
