@@ -25,6 +25,10 @@ export default function PokemonScreen() {
           <Image source={{ uri: data.sprites.front_default }} style={{ width: 100, height: 100 }} />
           <Text>Experiencia Base: {data.base_experience}</Text>
           <Text>Habilidades: {data.abilities.map(a => a.ability.name).join(', ')}</Text>
+          <Text>Altura: {data.height / 10} m</Text>
+          <Text>Peso: {data.weight / 10} kg</Text>
+          <Text>Tipos: {data.types.map(t => t.type.name).join(', ')}</Text>
+          <Text>Movimientos: {data.moves.slice(0, 5).map(m => m.move.name).join(', ')}</Text>
         </>
       )}
     </View>
