@@ -10,6 +10,7 @@ import WeatherScreen from './screens/WeatherScreen';
 import PokemonScreen from './screens/PokemonScreen';
 import NewsScreen from './screens/NewsScreen';
 import MenuScreen from './screens/MenuScreen';
+import AboutScreen from './screens/AboutScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ export default function App() {
         <Stack.Screen name="Clima RD" component={WeatherScreen} />
         <Stack.Screen name="Pokémon" component={PokemonScreen} />
         <Stack.Screen name="Noticias DJ" component={NewsScreen} />
+        <Stack.Screen name="Sobre Mí" component={AboutScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -11,6 +11,7 @@ export default function MenuScreen({ navigation }) {
       <Button title="🌦️ Clima en RD" onPress={() => navigation.navigate('Clima RD')} />
       <Button title="🧬 Info Pokémon" onPress={() => navigation.navigate('Pokémon')} />
       <Button title="📰 Noticias DJ Tips" onPress={() => navigation.navigate('Noticias DJ')} />
+      <Button title="🙋 Sobre mí" onPress={() => navigation.navigate('Sobre Mí')} />
     </ScrollView>
   );
 }
