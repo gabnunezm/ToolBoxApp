@@ -1,27 +1,70 @@
 import React from 'react';
-import { View, Button, StyleSheet, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
+import Animated, { FadeInDown } from 'react-native-reanimated';
+import { LinearGradient } from 'expo-linear-gradient';
+
+const menuItems = [
+  { title: '🏠 Inicio', screen: 'Inicio' },
+  { title: '👤 Predecir Género', screen: 'Género' },
+  { title: '🎂 Estimar Edad', screen: 'Edad' },
+  { title: '🎓 Universidades por País', screen: 'Universidades' },
+  { title: '🌦️ Clima en RD', screen: 'Clima RD' },
+  { title: '🧬 Info Pokémon', screen: 'Pokémon' },
+  { title: '📰 Noticias DJ Tips', screen: 'Noticias DJ' },
+  { title: '🙋 Sobre mí', screen: 'Sobre Mí' },
+];
 
 export default function MenuScreen({ navigation }) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Button title="🏠 Inicio" onPress={() => navigation.navigate('Inicio')} />
-      <Button title="👤 Predecir Género" onPress={() => navigation.navigate('Género')} />
-      <Button title="🎂 Estimar Edad" onPress={() => navigation.navigate('Edad')} />
-      <Button title="🎓 Universidades por País" onPress={() => navigation.navigate('Universidades')} />
-      <Button title="🌦️ Clima en RD" onPress={() => navigation.navigate('Clima RD')} />
-      <Button title="🧬 Info Pokémon" onPress={() => navigation.navigate('Pokémon')} />
-      <Button title="📰 Noticias DJ Tips" onPress={() => navigation.navigate('Noticias DJ')} />
-      <Button title="🙋 Sobre mí" onPress={() => navigation.navigate('Sobre Mí')} />
-    </ScrollView>
+    <LinearGradient colors={['#dbeafe', '#f0f9ff']} style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={styles.container}>
+        {menuItems.map((item, index) => (
+          <Animated.View
+            key={item.screen}
+            entering={FadeInDown.delay(index * 100).duration(400)}
+          >
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate(item.screen)}
+            >
+              <Text style={styles.buttonText}>{item.title}</Text>
+            </TouchableOpacity>
+          </Animated.View>
+        ))}
+      </ScrollView>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    gap: 10,
+    padding: 24,
+    gap: 16,
     justifyContent: 'center',
     alignItems: 'stretch',
     flexGrow: 1,
+  },
+  button: {
+    backgroundColor: '#3b82f6',
+    paddingVertical: 18,
+    paddingHorizontal: 20,
+    borderRadius: 14,
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    elevation: 4,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: '600',
+    textAlign: 'center',
   },
 });
