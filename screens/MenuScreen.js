@@ -10,7 +10,7 @@ import Animated, { FadeInDown } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const menuItems = [
-  { title: '🏠 Inicio', screen: 'Inicio' },
+  { title: '🏠 Info App', screen: 'Info App' },
   { title: '👤 Predecir Género', screen: 'Género' },
   { title: '🎂 Estimar Edad', screen: 'Edad' },
   { title: '🎓 Universidades por País', screen: 'Universidades' },
