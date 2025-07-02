@@ -19,7 +19,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Menú">
         <Stack.Screen name="Menú" component={MenuScreen} />
-        <Stack.Screen name="Inicio" component={HomeScreen} />
+        <Stack.Screen name="Info App" component={HomeScreen} />
         <Stack.Screen name="Género" component={GenderScreen} />
         <Stack.Screen name="Edad" component={AgeScreen} />
         <Stack.Screen name="Universidades" component={UniversitiesScreen} />
