@@ -29,7 +29,7 @@ export default function PokemonScreen() {
       const json = await res.json();
       setData(json);
 
-      // Cargar sonido pero no reproducirlo de inmediato
+      // El sonido del pokemon carga aquí al reproductor
       const newSound = new Audio.Sound();
       await newSound.loadAsync({
         uri: `https://pokemoncries.com/cries-old/${json.id}.mp3`,
